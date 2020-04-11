@@ -1,16 +1,13 @@
 #!/usr/bin/env python
 import pika
 from random import choice
+import RabbitFrame
 
 
-class Director:
+class Director(RabbitFrame):
 
     def __init__(self):
-        connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='localhost'))
-        channel = connection.channel()
-        channel.queue_declare(queue='rpc_queue')
-        self.channel = channel
+        self.channel.queue_declare(queue='rpc_queue')
 
     @staticmethod
     def yes_or_no():
@@ -18,8 +15,8 @@ class Director:
         return answer
 
     def on_request(self, ch, method, props, body):
+        print(body)
         response = self.yes_or_no()
-        print(" [.] The answer is %s" % response)
 
         ch.basic_publish(exchange='',
                          routing_key=props.reply_to,

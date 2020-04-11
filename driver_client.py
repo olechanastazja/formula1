@@ -1,14 +1,13 @@
 #!/usr/bin/env python
 import pika
 import uuid
+import RabbitFrame
 
 
-class DriverClient:
+class DriverClient(RabbitFrame):
 
     def __init__(self):
-        self.connection = pika.BlockingConnection(
-            pika.ConnectionParameters(host='localhost'))
-        self.channel = self.connection.channel()
+        super(DriverClient, self).__init__()
         result = self.channel.queue_declare(queue='', exclusive=True)
         self.callback_queue = result.method.queue
         self.channel.basic_consume(
@@ -37,7 +36,6 @@ class DriverClient:
 
 
 driver_client = DriverClient()
-
 print(" [x] Requesting reply form director")
-response = driver_client.call('Czy mogę zjechać do pit stopu Panie kierowniku?')
+response = driver_client.call('Czy moge zjechac do pit stopu Panie kierowniku?')
 print(" [.] Got %r" % response)
