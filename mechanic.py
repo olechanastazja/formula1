@@ -30,7 +30,7 @@ class Mechanic(RabbitFrame):
 
         self.channel.start_consuming()
 
-    def callback(self,ch, method, properties, body):
+    def callback(self, ch, method, properties, body):
         print(" [x] %r:%r" % (method.routing_key, body))
 
 

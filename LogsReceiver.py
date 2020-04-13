@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-import pika
-import RabbitFrame
+from RabbitFrame import RabbitFrame
 
 
 class LogsReceiver(RabbitFrame):
@@ -21,7 +19,6 @@ class LogsReceiver(RabbitFrame):
     @staticmethod
     def callback(self, ch, method, properties, body):
         print(" Logs %r" % body)
+        with open('logs.txt', 'w+') as file:
+            file.write(body)
 
-
-logs_receiver = LogsReceiver()
-logs_receiver.call()

@@ -2,10 +2,6 @@
 import pika
 import sys
 
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
-channel = connection.channel()
-
 channel.exchange_declare(exchange='warning', exchange_type='direct')
 
 result = channel.queue_declare(queue='', exclusive=True)
