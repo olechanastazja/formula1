@@ -5,7 +5,7 @@ Do obsługi komunikatów używany jest RabbitMQ. Do zarządzania wysyłaniem kom
 
 Skrypt `formula1.py` wysyła co 15 sekund informacje z bolida. Są ona automatycznie generowanymi 
 randomowymi liczbami z zakresu od 0 do 100. 
-Co 7 sekund wysyłane jest pytanie od kierowcy do kierownika z prośbą o zjechanie do pitstopu.
+Co 17 sekund wysyłane jest pytanie od kierowcy do kierownika z prośbą o zjechanie do pitstopu.
 Otrzymuje wylosowaną odpowiedź.
  
 

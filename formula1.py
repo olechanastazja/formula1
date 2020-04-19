@@ -27,12 +27,12 @@ def ask_director_func():
 
 
 def main():
-    schedule.every(5).seconds.do(send_info_from_bolid)
+    schedule.every(15).seconds.do(send_info_from_bolid)
     start_logging.delay()
     start_monitoring.delay()
     start_mechanic.delay()
     start_director.delay()
-    schedule.every(7).seconds.do(ask_director_func)
+    schedule.every(17).seconds.do(ask_director_func)
     while True:
         schedule.run_pending()
 
