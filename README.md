@@ -35,13 +35,14 @@ $ pip install -r requirements.txt
 
 ###### Uruchomienie workera celery
 
-```buildoutcfg
+```
 $ celery -A formula1 worker --loglevel=DEBUG
 ```
 
 ###### Uruchomienie skryptu wysyłacjego wiadomości
 
-```buildoutcfg
+W nowej karcie
+```
 $ python3 formula1.py
 ```
 
