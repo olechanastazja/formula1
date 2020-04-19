@@ -14,7 +14,7 @@ class Monitoring(RabbitFrame):
         self.channel.queue_bind(exchange='logging', queue=self.queue_name)
 
     def call(self):
-        print(' [*] Waiting for monitoring information. To exit press CTRL+C')
+        print(' [*] Waiting for information from bolid. To exit press CTRL+C')
         self.channel.basic_consume(
             queue=self.queue_name, on_message_callback=self.callback, auto_ack=True)
         self.channel.start_consuming()
@@ -26,6 +26,7 @@ class Monitoring(RabbitFrame):
         info = [value for key, value in a.items()]
         for value in info[0:-1]:
             value = int(value)
+            # Warunek sprawdza czy to poważna awaria (> 75) czy tylko przekroczenie parametrów (> 50)
             if value > 75:
                 severity = 'error'
                 self.channel.exchange_declare(exchange='error', exchange_type='direct')

@@ -2,7 +2,6 @@
 import pika
 import uuid
 from RabbitFrame import RabbitFrame
-import sys
 
 
 class DriverClient(RabbitFrame):
@@ -55,9 +54,3 @@ class DriverClient(RabbitFrame):
 
     def callback(self, ch, method, properties, body):
         print(" [x] %r:%r" % (method.routing_key, body))
-
-    def call(self):
-        if len(sys.argv) > 1:
-            self.ask(sys.argv[1])
-        else:
-            self.receive_warnings()

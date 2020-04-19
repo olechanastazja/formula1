@@ -3,10 +3,10 @@
 Zadanie zostało wykonane z wykorzystaniem Pythona 3.6. Jest on wymagany do uruchomienia.
 Do obsługi komunikatów używany jest RabbitMQ. Do zarządzania wysyłaniem komunikatów celery.
 
-Skrypt `formula1.py` wysyła co 15 sekund informacje z bolida. Są ona autamtycznie generowanymi 
-randomowymi liczbami z zakru od 0 do 100. 
+Skrypt `formula1.py` wysyła co 15 sekund informacje z bolida. Są ona automatycznie generowanymi 
+randomowymi liczbami z zakresu od 0 do 100. 
 Co 7 sekund wysyłane jest pytanie od kierowcy do kierownika z prośbą o zjechanie do pitstopu.
-Odtrzymuje wylosowaną odpowiedź.
+Otrzymuje wylosowaną odpowiedź.
  
 
 #### Instalacja 

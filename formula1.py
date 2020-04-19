@@ -9,7 +9,7 @@ from mechanic import Mechanic
 from driver_client import DriverClient
 from director import Director
 
-# Create the app and set the broker location (RabbitMQ)
+
 app = Celery('formula1',
              backend='rpc://',
              broker='pyamqp://guest@localhost//')

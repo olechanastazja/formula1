@@ -8,5 +8,3 @@ class RabbitFrame:
             pika.ConnectionParameters(host='localhost'))
         self.channel = self.connection.channel()
 
-    def call(self):
-        pass
