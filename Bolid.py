@@ -17,7 +17,7 @@ class Bolid(RabbitFrame):
             'engine_temperature': self.engine_temperature,
             'tire_pressure': self.tire_pressure,
             'oil_pressure': self.oil_pressure,
-            'time': datetime.now()
+            'time': str(datetime.now())
         }
         message = json.dumps(message_body)
         self.channel.basic_publish(exchange='logging', routing_key='', body=message)

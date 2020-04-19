@@ -17,8 +17,10 @@ class LogsReceiver(RabbitFrame):
         self.channel.start_consuming()
 
     @staticmethod
-    def callback(self, ch, method, properties, body):
-        print(" Logs %r" % body)
-        with open('logs.txt', 'w+') as file:
-            file.write(body)
+    def callback(ch, method, properties, body):
+        print("Logs %r" % body)
+        with open('logs.txt', 'a') as file:
+            file.write(str(body) + '\n')
+
+
 
